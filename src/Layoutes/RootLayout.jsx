@@ -7,7 +7,7 @@ import Header from "../Pages/Shared/NavBar/Header";
 const RootLayout = () => {
   return (
     <div className="max-w-[1260px] mx-auto">
-      <div>
+      <div className="navbar">
         <Header></Header>
       </div>
       <Outlet></Outlet>

@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import logo from "../../../assets/logo8.png";
 import NavMenu from "./NavMenu";
 
+import { Link } from "react-router";
+
 const NavBar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -22,7 +24,7 @@ const NavBar = () => {
   };
 
   return (
-    <div>
+    <div className="navbar">
       <div
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 
       ${isScrolled ? "bg-white shadow-lg" : "bg-transparent"}`}
@@ -89,14 +91,20 @@ const NavBar = () => {
                   className="menu menu-sm dropdown-content mt-3 z-10 p-3 shadow bg-white rounded-box w-40"
                 >
                   <li>
-                    <a className="btn btn-sm bg-[#04AC47] text-white hover:bg-[#03973E]">
+                    <Link
+                      to="/login"
+                      className=" bg-gray-200 hover:bg-gray-300"
+                    >
                       Login
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a className="btn btn-sm bg-gray-200 hover:bg-gray-300 mt-2">
+                    <Link
+                      to="/register"
+                      className=" bg-gray-200 hover:bg-gray-300 mt-2"
+                    >
                       Register
-                    </a>
+                    </Link>
                   </li>
                   <li>
                     <a className="btn btn-sm bg-[#04AC47] text-white hover:bg-[#03973E] mt-2">

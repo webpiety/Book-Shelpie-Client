@@ -224,3 +224,21 @@ input:checked + .slider:before {
     transform: translateY(-400%);
   }
 }
+
+/* Prevent Leaflet map from appearing above navbar */
+.leaflet-container {
+  z-index: 0 !important;
+}
+
+.leaflet-pane,
+.leaflet-control,
+.leaflet-top,
+.leaflet-bottom {
+  z-index: 1 !important;
+}
+
+/* Keep navbar above everything */
+.navbar {
+  z-index: 50 !important;
+  position: relative;
+}

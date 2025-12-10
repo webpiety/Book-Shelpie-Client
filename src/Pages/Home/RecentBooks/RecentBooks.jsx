@@ -12,14 +12,14 @@ const RecentBooks = () => {
   const sixthBook = booksCollections[5];
 
   return (
-    <div className="mt-1 md:mt-6">
+    <div className="mt-1 md:mt-18">
       <div className="flex justify-center">
         <div class="card">
           <div class="loader">
-            <p className="text-xl md:text-4xl text-[#522ba7] font-bold">
+            <p className="text-xl md:text-4xl md:font-extrabold text-purple-700 font-bold">
               Latest Collections
             </p>
-            <div class="words mt-1">
+            <div class="words mt-2">
               <span class="word text-xl md:text-3xl font-bold">"1984"</span>
               <span class="word text-xl md:text-3xl font-bold">
                 "To Kill a Mockingbird"
@@ -43,7 +43,7 @@ const RecentBooks = () => {
           </div>
         </div>
       </div>
-      <div className="grid grid-cols-2 grid-rows-4 max-w-5xl gap-2 h-[1100px] mx-auto mt-4 md:mt-8">
+      <div className="grid grid-cols-2 grid-rows-4 max-w-5xl gap-2 h-[1100px] mx-auto mt-4 md:mt-2">
         {/* Card 1 */}
         <div className="row-span-2 shadow-lg overflow-hidden relative group">
           <img src={firstBook.image} alt="" className="w-full h-full" />
