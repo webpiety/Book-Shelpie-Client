@@ -1,0 +1,50 @@
+[
+  {
+    "title": "1984",
+    "author": "George Orwell",
+    "category": "Dystopian / Fiction",
+    "image": "https://i.ibb.co/35BCYfdb/1984.jpg",
+    "rating": 4.5,
+    "description": "“1984” is a powerful dystopian novel set in a world ruled by a totalitarian government known as the Party, led by the mysterious Big Brother. Citizens live under constant surveillance, where every action, word, and even thought can be monitored. Winston Smith, a quiet and thoughtful man, works altering historical records to match the Party’s propaganda. Secretly longing for truth and freedom, he begins questioning the system and starts a forbidden search for individuality. As Winston experiences love, rebellion, and fear, he discovers how deeply the Party controls reality. The novel warns about the dangers of unchecked power and lost freedom."
+  },
+  {
+    "title": "To Kill a Mockingbird",
+    "author": "Harper Lee",
+    "category": "Classic / Fiction",
+    "image": "https://i.ibb.co/k287FMcX/To-Kill-a-Mockingbird.jpg",
+    "rating": 4.7,
+    "description": "“To Kill a Mockingbird” is a timeless novel set in the racially divided American South during the 1930s. The story is told through the eyes of Scout Finch, a young girl growing up with her brother Jem and their wise father, Atticus. When Atticus, a principled lawyer, defends a Black man falsely accused of a serious crime, Scout learns about justice, prejudice, and compassion. Through powerful moments of courage, innocence, and moral choice, the novel explores how empathy can break barriers of hatred. It remains a profound story about humanity, fairness, and the importance of standing up for what is right."
+  },
+  {
+    "title": "The Great Gatsby",
+    "author": "F. Scott Fitzgerald",
+    "category": "Classic / Fiction",
+    "image": "https://i.ibb.co/GQ5DTQFW/The-Great-Gatsby.jpg",
+    "rating": 4.4,
+    "description": "“The Great Gatsby” is a classic novel set in the glamorous yet troubled Jazz Age of the 1920s. The story follows Nick Carraway, who becomes fascinated by his mysterious and wealthy neighbor, Jay Gatsby. Gatsby is known for his extravagant parties, but behind the luxury lies a deep longing for Daisy Buchanan, the woman he loves. As Nick learns more about Gatsby’s past and the world of wealth, deception, and ambition around him, he witnesses how dreams can be fragile and corrupted. The novel explores themes of love, identity, and the illusion of the American Dream, making it a timeless masterpiece."
+  },
+  {
+    "title": "Crime and Punishment",
+    "author": "Fyodor Dostoevsky",
+    "category": "Classic / Psychological Fiction",
+    "image": "https://i.ibb.co/TxWw8zrY/Crime-and-Punishment.jpg",
+    "rating": 4.8,
+    "description": "“Crime and Punishment” follows Rodion Raskolnikov, a struggling former student living in poverty in St. Petersburg. Believing he is above ordinary morality, he commits a terrible crime, hoping it will free him from hardship and allow him to achieve greatness. Instead, he becomes overwhelmed by fear, guilt, and inner conflict. As the psychological pressure builds, Raskolnikov encounters people who challenge his beliefs, including the compassionate Sonia. Through his emotional journey, the novel explores morality, justice, redemption, and the consequences of destructive choices. It remains one of literature’s most powerful studies of the human mind and the struggle between good and evil."
+  },
+  {
+    "title": "Pride and Prejudice",
+    "author": "Jane Austen",
+    "category": "Classic / Romance",
+    "image": "https://i.ibb.co/1fxG1gFS/Pride-and-Prejudice.jpg",
+    "rating": 4.9,
+    "description": "“Pride and Prejudice” is a classic novel that follows Elizabeth Bennet, an intelligent and independent young woman navigating family expectations, social rules, and personal values in 19th-century England. When she meets Mr. Darcy, a wealthy yet seemingly proud man, misunderstandings and quick judgments shape their early impressions of each other. As events unfold, Elizabeth learns more about Darcy’s true character, while confronting her own assumptions. The story explores themes of pride, prejudice, class, and personal growth. Through witty dialogue, memorable characters, and sharp observations about society, the novel remains one of literature’s most beloved and insightful works."
+  },
+  {
+    "title": "The Count of Monte Cristo",
+    "author": "Alexandre Dumas",
+    "category": "Adventure / Classic",
+    "image": "https://i.ibb.co/NgkmKz49/The-Count-of-Monte-Cristo.jpg",
+    "rating": 5,
+    "description": "“The Count of Monte Cristo” tells the story of Edmond Dantès, a young and promising sailor whose life changes when he is falsely accused by jealous rivals. Imprisoned without trial in the dreaded Château d’If, Edmond meets a fellow prisoner who helps him uncover a hidden treasure. After a daring escape, he transforms himself into the mysterious Count of Monte Cristo. Using his new identity, Edmond carefully seeks justice against those who betrayed him, while also helping the innocent. The novel explores themes of hope, loyalty, betrayal, and the moral limits of revenge, making it an unforgettable adventure classic."
+  }
+]
