@@ -6,6 +6,10 @@ import AuthLayout from "../Layoutes/AuthLayout";
 import Login from "../Pages/AuthPages/Login";
 import Register from "../Pages/AuthPages/Register";
 import AllBooks from "../Pages/Home/AllBooks/AllBooks";
+import BookDetails from "../Pages/BookDetails/BookDetails";
+import PrivateRoute from "./PrivateRoute";
+import DashboardLayout from "../Layoutes/DashboardLayout";
+import MyBooks from "../Pages/DashBoardPages/MyBooks/MyBooks";
 
 export const router = createBrowserRouter([
   {
@@ -28,6 +32,14 @@ export const router = createBrowserRouter([
         path: "all-books",
         Component: AllBooks,
       },
+      {
+        path: "book-details/:id",
+        element: (
+          <PrivateRoute>
+            <BookDetails></BookDetails>
+          </PrivateRoute>
+        ),
+      },
     ],
   },
   {
@@ -41,6 +53,20 @@ export const router = createBrowserRouter([
       {
         path: "register",
         Component: Register,
+      },
+    ],
+  },
+  {
+    path: "dashboard",
+    element: (
+      <PrivateRoute>
+        <DashboardLayout></DashboardLayout>
+      </PrivateRoute>
+    ),
+    children: [
+      {
+        path: "my-books",
+        Component: MyBooks,
       },
     ],
   },

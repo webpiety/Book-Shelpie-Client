@@ -31,7 +31,10 @@ const NavMenu = () => {
           >
             Coverage
           </NavLink>
-          <NavLink className="mx-0 md:mx-2 text-[#522ba7] hover:text-[#e6c447]">
+          <NavLink
+            to="/dashboard/my-books"
+            className="mx-0 md:mx-2 text-[#522ba7] hover:text-[#e6c447]"
+          >
             Dashboard
           </NavLink>
         </div>

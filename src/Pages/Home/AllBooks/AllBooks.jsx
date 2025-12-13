@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
+import { Link } from "react-router";
 
 const AllBooks = () => {
   const axiosSecure = useAxiosSecure();
@@ -90,9 +91,12 @@ const AllBooks = () => {
 
             {/* Bottom button */}
             <div className="p-4">
-              <button className="w-full bg-indigo-600 text-white py-2 rounded-lg font-medium hover:bg-indigo-700 transition">
+              <Link
+                to={`/book-details/${book._id}`}
+                className="btn w-full bg-indigo-600 text-white py-2 rounded-lg font-medium hover:bg-indigo-700 transition"
+              >
                 View Details
-              </button>
+              </Link>
             </div>
           </div>
         ))}
