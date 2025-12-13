@@ -4,9 +4,17 @@ import { MdEmail } from "react-icons/md";
 import { RiLock2Fill } from "react-icons/ri";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import { FcGoogle } from "react-icons/fc";
+import useAuth from "../../Hooks/useAuth";
+import { useLocation, useNavigate } from "react-router";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import toast, { Toaster } from "react-hot-toast";
 
 const Login = () => {
+  const { googleSignIn, userSign } = useAuth();
+  const axiosSecure = useAxiosSecure();
   const [showPassword, setShowPassword] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const {
     register,
@@ -14,12 +22,49 @@ const Login = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log("Login Submitted:", data);
+  const handleLogIn = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    console.log({ email, password });
+    userSign(email, password)
+      .then((res) => {
+        console.log(res.user);
+        toast.success("Successfully Login!");
+        navigate(location?.state || "/");
+      })
+      .catch((err) => {
+        console.log(err);
+        toast.error("Please insert valid email and password!");
+      });
+  };
+
+  const handleGoogleSignIn = () => {
+    googleSignIn()
+      .then(async (result) => {
+        const newUser = {
+          name: result.user.displayName,
+          email: result.user.email,
+          photo: result.user.photoURL,
+        };
+
+        toast.success("Successfully Login by Google!");
+
+        const res = await axiosSecure.post("/users", newUser);
+
+        console.log("User save response:", res.data);
+
+        // Navigate always, even if user already exists
+        navigate(location?.state?.from || "/", { replace: true });
+      })
+      .catch((error) => {
+        console.log("Google login error:", error.message);
+      });
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center dark:bg-gray-900 p-4">
+      <Toaster position="top-center" reverseOrder={false} />
       <div className="w-full max-w-md bg-white dark:bg-gray-800 shadow-xl rounded-2xl p-8 transition-all duration-300 hover:shadow-2xl">
         {/* Heading */}
         <h2 className="text-3xl font-bold text-center text-[#522ba7] dark:text-white mb-6">
@@ -27,7 +72,7 @@ const Login = () => {
         </h2>
 
         {/* Form */}
-        <form className="space-y-5" onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={() => handleSubmit(handleLogIn)} className="space-y-5">
           {/* Email */}
           <div>
             <label className="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-300">
@@ -111,7 +156,7 @@ const Login = () => {
           {/* Google Sign In */}
           <button
             type="button"
-            onClick={() => console.log("Google Sign-In")}
+            onClick={handleGoogleSignIn}
             className="w-full flex items-center justify-center gap-3 border border-gray-300 dark:border-gray-600 py-3 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700 transition text-gray-700 dark:text-gray-200"
           >
             <FcGoogle size={22} />

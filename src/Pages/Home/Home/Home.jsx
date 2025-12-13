@@ -7,6 +7,7 @@ import ChooseUs from "../ChooseUs/ChooseUs";
 import BookCourier from "../BookCourier/BookCourier";
 import Borrowing from "../Borrowing/Borrowing";
 import Reviews from "../Reviews/Reviews";
+import Recent from "./Recent/Recent.jsx";
 
 const Home = () => {
   return (
@@ -14,7 +15,10 @@ const Home = () => {
       <div className="mt-24">
         <HeaderBanner></HeaderBanner>
       </div>
-      <RecentBooks></RecentBooks>
+      <div>
+        <Recent></Recent>
+      </div>
+      {/* <RecentBooks></RecentBooks> */}
       <div>
         <ServicesPlaces></ServicesPlaces>
       </div>

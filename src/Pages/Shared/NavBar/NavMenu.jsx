@@ -19,7 +19,10 @@ const NavMenu = () => {
           <NavLink className="mx-0 md:mx-2 text-[#522ba7] hover:text-[#e6c447]">
             Home
           </NavLink>
-          <NavLink className="mx-0 md:mx-2 text-[#522ba7] hover:text-[#e6c447]">
+          <NavLink
+            to="/all-books"
+            className="mx-0 md:mx-2 text-[#522ba7] hover:text-[#e6c447]"
+          >
             Books
           </NavLink>
           <NavLink

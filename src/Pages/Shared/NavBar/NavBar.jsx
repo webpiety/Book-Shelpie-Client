@@ -3,8 +3,10 @@ import logo from "../../../assets/logo8.png";
 import NavMenu from "./NavMenu";
 
 import { Link } from "react-router";
+import useAuth from "../../../Hooks/useAuth";
 
 const NavBar = () => {
+  const { logOut, user } = useAuth();
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -21,6 +23,16 @@ const NavBar = () => {
       html.getAttribute("data-theme") === "light" ? "dark" : "light";
     html.setAttribute("data-theme", newTheme);
     localStorage.setItem("theme", newTheme);
+  };
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        console.log("Log out successful");
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
   };
 
   return (
@@ -81,9 +93,15 @@ const NavBar = () => {
               {/* Avatar Dropdown */}
               <div className="dropdown dropdown-end">
                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                  <div className="w-10 rounded-full">
-                    <img src="https://i.ibb.co/5GzXkwq/user.png" alt="user" />
-                  </div>
+                  {user ? (
+                    <div className="w-10 rounded-full">
+                      <img src={user.photoURL} alt="user" />
+                    </div>
+                  ) : (
+                    <div className="w-10 rounded-full">
+                      <img src="https://i.ibb.co/5GzXkwq/user.png" alt="user" />
+                    </div>
+                  )}
                 </label>
 
                 <ul
@@ -112,9 +130,12 @@ const NavBar = () => {
                     </a>
                   </li>
                   <li>
-                    <a className="btn btn-sm bg-gray-200 hover:bg-gray-300 mt-2">
+                    <Link
+                      onClick={handleLogOut}
+                      className="btn btn-sm bg-gray-200 hover:bg-gray-300 mt-2"
+                    >
                       Log Out
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>

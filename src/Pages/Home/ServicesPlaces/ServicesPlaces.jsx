@@ -2,21 +2,31 @@ import React from "react";
 import coverage from "../../../assets/coverage.png";
 const ServicesPlaces = () => {
   return (
-    <section className="py-16 bg-base-100 mt-12">
+    <section className="py-16 bg-base-100">
       {/* Heading */}
-      <div className="text-center max-w-3xl mx-auto mb-12">
-        <h2 className="text-4xl font-extrabold text-purple-700 mb-6">
-          Nationalwise Library Coverage
-        </h2>
-        <p className="text-gray-600 mt-3">
-          Our library service is now available across all 64 districts of
-          Bangladesh. Borrow books from anywhere — delivered straight to your
-          doorstep.
-        </p>
+      <div className="flex justify-center">
+        <div class="card">
+          <div class="loader">
+            <h2 className="text-4xl font-extrabold text-indigo-600">
+              Nationalwise Library Coverage
+            </h2>
+            <div class="words mt-3">
+              <span class="word text-xl md:text-1xl font-bold">"1984"</span>
+              <span class="word text-xl md:text-1xl font-bold">"Dhaka"</span>
+              <span class="word text-xl md:text-1xl font-bold">
+                "Chittagong"
+              </span>
+              <span class="word text-xl md:text-1xl font-bold">"Sylhet"</span>
+              <span class="word text-xl md:text-1xl font-bold">"Khulna"</span>
+              <span class="word text-xl md:text-1xl font-bold">"Rangpur"</span>
+              <span class="word text-xl md:text-1xl font-bold">"Rajshahi"</span>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* Image + Content */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center mx-auto">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center mx-auto mt-8">
         {/* Left Image */}
         <div className="w-full">
           <img

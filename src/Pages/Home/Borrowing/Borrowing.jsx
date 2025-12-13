@@ -33,7 +33,7 @@ const Borrowing = () => {
   return (
     <section className="py-20 bg-gradient-to-b from-white to-purple-50 mt-12">
       <div className="max-w-7xl mx-auto px-6 text-center">
-        <h2 className="text-4xl font-extrabold text-purple-700 mb-6">
+        <h2 className="text-4xl font-extrabold text-indigo-600 mb-6">
           How Borrowing Works
         </h2>
         <p className="text-gray-600 max-w-2xl mx-auto mb-14">
