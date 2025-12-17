@@ -10,6 +10,19 @@ import BookDetails from "../Pages/BookDetails/BookDetails";
 import PrivateRoute from "./PrivateRoute";
 import DashboardLayout from "../Layoutes/DashboardLayout";
 import MyBooks from "../Pages/DashBoardPages/MyBooks/MyBooks";
+import WishList from "../Pages/DashBoardPages/WishList/WishList";
+import Payment from "../Pages/DashBoardPages/Payment/Payment";
+import PaymentSuccess from "../Pages/DashBoardPages/Payment/PaymentSuccess";
+import PaymentCancelled from "../Pages/DashBoardPages/Payment/PaymentCancelled";
+import PaymentHistory from "../Pages/DashBoardPages/Payment/PaymentHistory";
+import AddBooks from "../Pages/AddBooks/AddBook";
+import MyAddedBooks from "../Pages/AddBooks/MyAddedBooks";
+import ApprovedBooks from "../Pages/ApprovedBooks/ManageBooks";
+import UserManagement from "../Pages/UserManagement/UserManagement";
+import MyProfile from "../Pages/MyProfile/MyProfile";
+import EditBook from "../Pages/AddBooks/EditBook";
+import ManageBooks from "../Pages/ApprovedBooks/ManageBooks";
+import ManageOrders from "../Pages/ManageOrders/ManageOrders";
 
 export const router = createBrowserRouter([
   {
@@ -40,6 +53,14 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+      {
+        path: "add-books",
+        element: (
+          <PrivateRoute>
+            <AddBooks></AddBooks>
+          </PrivateRoute>
+        ),
+      },
     ],
   },
   {
@@ -65,8 +86,56 @@ export const router = createBrowserRouter([
     ),
     children: [
       {
-        path: "my-books",
+        path: "myBooks",
         Component: MyBooks,
+      },
+      {
+        path: "wishlist",
+        Component: WishList,
+      },
+      {
+        path: "payment/:id",
+        Component: Payment,
+      },
+      {
+        path: "payment-success",
+        Component: PaymentSuccess,
+      },
+      {
+        path: "payment-cancelled",
+        Component: PaymentCancelled,
+      },
+      {
+        path: "payment-history",
+        Component: PaymentHistory,
+      },
+      {
+        path: "my-added-books",
+        Component: MyAddedBooks,
+      },
+      {
+        path: "approved-books",
+        Component: ApprovedBooks,
+      },
+      {
+        path: "user-management",
+        Component: UserManagement,
+      },
+      {
+        path: "my-information",
+        Component: MyProfile,
+      },
+      {
+        path: "edit-book/:id",
+        Component: EditBook,
+      },
+      {
+        path: "manage-books",
+        Component: ManageBooks,
+      },
+      {
+        path: "manage-orders",
+        Component: ManageOrders
       },
     ],
   },

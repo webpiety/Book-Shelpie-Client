@@ -1,21 +1,24 @@
 import React, { useRef } from "react";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import Loading from "../Loading/Loading";
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 import { AiOutlineHeart } from "react-icons/ai";
 import useAuth from "../../Hooks/useAuth";
 import { useForm } from "react-hook-form";
+import toast, { Toaster } from "react-hot-toast";
 
 const BookDetails = () => {
   const { user } = useAuth();
   const { id } = useParams();
   const axiosSecure = useAxiosSecure();
-  const userOrderModalRef = useRef();
+  const userOrderModalRef = useRef(null);
   const { register, handleSubmit } = useForm();
+  const navigate = useNavigate();
 
-  const { data: book, isLoading } = useQuery({
+  // Fetch book details
+  const { data: book = {}, isLoading } = useQuery({
     queryKey: ["bookDetails", id],
     enabled: !!id,
     queryFn: async () => {
@@ -24,9 +27,8 @@ const BookDetails = () => {
     },
   });
 
-  if (isLoading) {
-    return <Loading></Loading>;
-  }
+  if (isLoading) return <Loading />;
+
   const fullStars = Math.floor(book.review.rating);
   const hasHalfStar = book.review.rating - fullStars >= 0.5;
   const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
@@ -34,13 +36,57 @@ const BookDetails = () => {
   const handleOrder = () => {
     userOrderModalRef.current.showModal();
   };
-  const handlePlaceOrder = (orders) => {
-    console.log(orders);
-    
+
+  const handlePlaceOrder = (data) => {
+    const orderData = {
+      bookName: book?.title,
+      price: book?.price,
+      email: user?.email,
+      name: user?.displayName,
+      phone: data.phone,
+      address: data.address,
+    };
+
+    axiosSecure
+      .post("/orders", orderData)
+      .then(() => {
+        userOrderModalRef.current?.close();
+        toast.success("Your order has been placed");
+        navigate("/dashboard/myBooks");
+      })
+      .catch((error) => {
+        console.error("Order failed:", error.response?.data || error.message);
+        toast.error(error.response?.data?.message || "Order failed");
+      });
+  };
+
+  const handleWishlist = () => {
+    const wishlistData = {
+      title: book.title,
+      author: book.author,
+      language: book.language,
+      price: book.price,
+      email: user.email,
+    };
+
+    axiosSecure
+      .post("/wishlist", wishlistData)
+      .then((res) => {
+        console.log("Wishlist saved", res.data);
+        toast.success("Successfully added to wishlist");
+        navigate("/dashboard/wishlist");
+      })
+      .catch((error) => {
+        console.error(
+          "Wishlist failed:",
+          error.response?.data || error.message
+        );
+      });
   };
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-16">
+      <Toaster position="top-center" reverseOrder={false} />
       <div className="grid md:grid-cols-2 gap-12 bg-white rounded-2xl shadow-xl p-8 items-stretch">
         {/* Book Image */}
         <div className="h-full flex">
@@ -122,7 +168,7 @@ const BookDetails = () => {
           </div>
 
           {/* Description */}
-          <div className="bg-gradient-to-r from-indigo-50 to-purple-50 p-6 rounded-xl border border-indigo-100 flex-1">
+          <div className="bg-linear-to-r from-indigo-50 to-purple-50 p-6 rounded-xl border border-indigo-100 flex-1">
             <h3 className="text-lg font-semibold text-gray-900 mb-2">
               📖 Description
             </h3>
@@ -140,7 +186,10 @@ const BookDetails = () => {
             >
               Order Now
             </button>
-            <button className="flex-1 flex items-center justify-center gap-2 border border-indigo-600 text-indigo-600 py-3 rounded-xl font-medium hover:bg-indigo-50 transition">
+            <button
+              onClick={handleWishlist}
+              className="flex-1 flex items-center justify-center gap-2 border border-indigo-600 text-indigo-600 py-3 rounded-xl font-medium hover:bg-indigo-50 transition"
+            >
               <AiOutlineHeart className="text-xl" />
               Wishlist
             </button>
@@ -160,7 +209,16 @@ const BookDetails = () => {
                   onSubmit={handleSubmit(handlePlaceOrder)}
                   className="space-y-4"
                 >
-                  {/* Name */}
+                  {/* Order Name */}
+                  <label>Book Name</label>
+                  <input
+                    type="text"
+                    defaultValue={book?.title}
+                    readOnly
+                    className="input input-bordered w-full"
+                    {...register("bookName", { readOnly: true })}
+                  />
+                  <label>Customer Name</label>
                   <input
                     type="text"
                     defaultValue={user?.displayName}
@@ -168,8 +226,17 @@ const BookDetails = () => {
                     className="input input-bordered w-full"
                     {...register("name", { readOnly: true })}
                   />
+                  <label>Price</label>
+                  <input
+                    type="number"
+                    defaultValue={book?.price}
+                    readOnly
+                    className="input input-bordered w-full"
+                    {...register("price", { readOnly: true })}
+                  />
 
                   {/* Email */}
+                  <label>Customer Email</label>
                   <input
                     type="email"
                     defaultValue={user?.email}
@@ -179,6 +246,7 @@ const BookDetails = () => {
                   />
 
                   {/* Phone Number */}
+                  <label>Phone Number</label>
                   <input
                     type="text"
                     placeholder="Phone Number"
@@ -187,6 +255,7 @@ const BookDetails = () => {
                   />
 
                   {/* Address */}
+                  <label>Customer Address</label>
                   <textarea
                     placeholder="Address"
                     className="textarea textarea-bordered w-full"

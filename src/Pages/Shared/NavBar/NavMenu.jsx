@@ -23,19 +23,26 @@ const NavMenu = () => {
             to="/all-books"
             className="mx-0 md:mx-2 text-[#522ba7] hover:text-[#e6c447]"
           >
-            Books
+            All Books
+          </NavLink>
+          <NavLink
+            to="/add-books"
+            className="mx-0 md:mx-2 text-[#522ba7] hover:text-[#e6c447]"
+          >
+            Add Books
+          </NavLink>
+
+          <NavLink
+            to="/dashboard"
+            className="mx-0 md:mx-2 text-[#522ba7] hover:text-[#e6c447]"
+          >
+            Dashboard
           </NavLink>
           <NavLink
             to="/coverage"
             className="mx-0 md:mx-2 text-[#522ba7] hover:text-[#e6c447]"
           >
             Coverage
-          </NavLink>
-          <NavLink
-            to="/dashboard/my-books"
-            className="mx-0 md:mx-2 text-[#522ba7] hover:text-[#e6c447]"
-          >
-            Dashboard
           </NavLink>
         </div>
       </div>

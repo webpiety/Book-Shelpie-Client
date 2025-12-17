@@ -22,16 +22,15 @@ const Login = () => {
     formState: { errors },
   } = useForm();
 
-  const handleLogIn = (e) => {
-    e.preventDefault();
-    const email = e.target.email.value;
-    const password = e.target.password.value;
+  const handleLogIn = (data) => {
+    const { email, password } = data;
     console.log({ email, password });
+
     userSign(email, password)
       .then((res) => {
         console.log(res.user);
         toast.success("Successfully Login!");
-        navigate(location?.state || "/");
+        navigate(location?.state?.from || "/");
       })
       .catch((err) => {
         console.log(err);
@@ -72,7 +71,7 @@ const Login = () => {
         </h2>
 
         {/* Form */}
-        <form onSubmit={() => handleSubmit(handleLogIn)} className="space-y-5">
+        <form onSubmit={handleSubmit(handleLogIn)} className="space-y-5">
           {/* Email */}
           <div>
             <label className="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-300">

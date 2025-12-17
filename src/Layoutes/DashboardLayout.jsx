@@ -2,6 +2,13 @@ import React from "react";
 import { Link, Outlet } from "react-router";
 import logo from "../../src/assets/logo8.png";
 import { IoBookOutline } from "react-icons/io5";
+import { MdPayment } from "react-icons/md";
+import { FiUser } from "react-icons/fi";
+import { GoBookmark } from "react-icons/go";
+import { BiSolidBookAdd } from "react-icons/bi";
+import { MdApproval } from "react-icons/md";
+import { HiOutlineInformationCircle } from "react-icons/hi2";
+import { MdOutlineShoppingCart } from "react-icons/md";
 
 const DashboardLayout = () => {
   return (
@@ -25,7 +32,7 @@ const DashboardLayout = () => {
                 strokeWidth="2"
                 fill="none"
                 stroke="currentColor"
-                className="my-1.5 inline-block size-8"
+                className="my-1.5 inline-block size-7"
               >
                 <path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z"></path>
                 <path d="M9 4v16"></path>
@@ -79,14 +86,98 @@ const DashboardLayout = () => {
               {/* List item */}
 
               <li>
-                <button
+                <Link
+                  to="/dashboard/myBooks"
                   className="is-drawer-close:tooltip is-drawer-close:tooltip-right mt-6"
-                  data-tip="Settings"
+                  data-tip="My Books"
                 >
                   {/* My books icon */}
                   <IoBookOutline className="size-6" />
                   <span className="is-drawer-close:hidden">My Books</span>
-                </button>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/dashboard/wishlist"
+                  className="is-drawer-close:tooltip is-drawer-close:tooltip-right mt-2"
+                  data-tip="Wishlist"
+                >
+                  {/* My books icon */}
+                  <GoBookmark className="size-6" />
+                  <span className="is-drawer-close:hidden">Wishlist</span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/dashboard/payment-history"
+                  className="is-drawer-close:tooltip is-drawer-close:tooltip-right mt-2"
+                  data-tip="Payment Hostory"
+                >
+                  {/* My books icon */}
+                  <MdPayment className="size-6" />
+                  <span className="is-drawer-close:hidden">
+                    Payment History
+                  </span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/dashboard/my-added-books"
+                  className="is-drawer-close:tooltip is-drawer-close:tooltip-right mt-2"
+                  data-tip="My Added Books"
+                >
+                  {/* My books icon */}
+                  <BiSolidBookAdd className="size-6" />
+                  <span className="is-drawer-close:hidden">My Added Books</span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/dashboard/manage-books"
+                  className="is-drawer-close:tooltip is-drawer-close:tooltip-right mt-2"
+                  data-tip="Manage Books"
+                >
+                  {/* My books icon */}
+                  <MdApproval className="size-6" />
+                  <span className="is-drawer-close:hidden">Manage Books</span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/dashboard/manage-orders"
+                  className="is-drawer-close:tooltip is-drawer-close:tooltip-right mt-2"
+                  data-tip="Manage orders"
+                >
+                  {/* My books icon */}
+                  <MdOutlineShoppingCart className="size-6" />
+                  <span className="is-drawer-close:hidden">Manage Orders</span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/dashboard/user-management"
+                  className="is-drawer-close:tooltip is-drawer-close:tooltip-right mt-2"
+                  data-tip="User Management"
+                >
+                  {/* My books icon */}
+                  <FiUser className="size-6" />
+                  <span className="is-drawer-close:hidden">
+                    User Management
+                  </span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/dashboard/my-information"
+                  className="is-drawer-close:tooltip is-drawer-close:tooltip-right mt-2"
+                  data-tip="My Information"
+                >
+                  {/* My books icon */}
+                  <HiOutlineInformationCircle className="size-6" />
+                  <span className="is-drawer-close:hidden">
+                    My I nformation
+                  </span>
+                </Link>
               </li>
             </ul>
           </div>
