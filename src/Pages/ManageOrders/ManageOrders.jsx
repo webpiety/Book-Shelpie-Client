@@ -16,16 +16,17 @@ const LibrarianOrders = () => {
     isLoading,
     refetch,
   } = useQuery({
-    queryKey: ["librarianOrders", user?.email],
+    queryKey: ["orders", user?.email],
     queryFn: async () => {
-      const res = await axiosSecure.get(
-        `/orders/librian/email?creatorEmail=${user.email}`
-      );
+      if (!user?.email) return [];
+      const res = await axiosSecure.get(`/orders?creatorEmail=${user?.email}`);
       return res.data;
     },
-    enabled: !!user?.email,
+    // enabled: !!user?.email,
   });
+
   console.log("ORDER", orders);
+
   if (isLoading) return <Loading />;
 
   // Cancel order
@@ -55,10 +56,11 @@ const LibrarianOrders = () => {
   const handleChangeStatus = async (orderId, newStatus) => {
     try {
       await axiosSecure.patch(`/orders/${orderId}/status`, {
-        status: newStatus,
+        status: newStatus, // <-- matches backend
       });
+
       toast.success(`Order status updated to "${newStatus}"`);
-      refetch();
+      refetch(); // <-- refresh orders list
     } catch (error) {
       console.error(error);
       toast.error("Failed to update status");
@@ -79,8 +81,10 @@ const LibrarianOrders = () => {
               <th>#</th>
               <th>Book</th>
               <th>Ordered By</th>
-              <th>Quantity</th>
-              <th>Status</th>
+              <th>Order ID</th>
+              <th>Tracking ID</th>
+              <th>Payment Status</th>
+              <th>Delivery Status</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -90,8 +94,40 @@ const LibrarianOrders = () => {
               <tr key={order._id}>
                 <td>{idx + 1}</td>
                 <td>{order.bookName}</td>
-                <td>{order.email}</td>
-                <td>{order.length}</td>
+                <td>
+                  {order.name} <br />
+                  {order.email}
+                </td>
+                <td>{order._id}</td>
+                <td>{order.trackingId}</td>
+
+                <td>
+                  <span
+                    className={`badge ${
+                      order.paymentStatus === "paid"
+                        ? "badge-success"
+                        : "badge-error"
+                    }`}
+                  >
+                    {order.paymentStatus}
+                  </span>
+                </td>
+                <td>
+                  <span
+                    className={`badge capitalize
+                   ${
+                     order.status === "paid"
+                       ? "badge-success"
+                       : order.status === "pending"
+                       ? "badge-warning"
+                       : order.status === "cancelled"
+                       ? "badge-error"
+                       : "badge-ghost"
+                   }`}
+                  >
+                    {order.status}
+                  </span>
+                </td>
                 <td>
                   <select
                     value={order.status}
