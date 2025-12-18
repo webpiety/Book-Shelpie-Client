@@ -23,7 +23,6 @@ const EditBook = () => {
 
   const imagePreview = watch("imageLink");
 
-  // Prefill form when book loads
   useEffect(() => {
     if (book) {
       reset({
@@ -64,7 +63,6 @@ const EditBook = () => {
       <h2 className="text-xl font-bold mb-4 text-center">Edit Book</h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {/* LEFT FORM */}
         <form onSubmit={handleSubmit(handleEditBook)} className="space-y-3">
           <input
             {...register("title")}
@@ -135,7 +133,6 @@ const EditBook = () => {
           <button className="btn btn-primary w-full">Update Book</button>
         </form>
 
-        {/* RIGHT IMAGE PREVIEW */}
         <div className="flex items-start justify-center border rounded-lg p-4 bg-base-200">
           {imagePreview ? (
             <img

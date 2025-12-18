@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer className="bg-gray-900 text-gray-300 pt-14 pb-6">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10">
-        {/* Brand & Description */}
+     
         <div>
           <h2 className="text-2xl font-extrabold text-white">Book Shelpie</h2>
           <p className="mt-3 text-sm text-gray-400">
@@ -12,7 +12,6 @@ const Footer = () => {
             simple, and reliable.
           </p>
 
-          {/* Social Icons */}
           <div className="flex gap-4 mt-5">
             <a
               href="#"
@@ -41,7 +40,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Pages */}
+     
         <div>
           <h3 className="text-white text-lg font-semibold mb-3">Pages</h3>
           <ul className="space-y-2 text-sm">
@@ -73,7 +72,7 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Quick Links */}
+       
         <div>
           <h3 className="text-white text-lg font-semibold mb-3">Quick Links</h3>
           <ul className="space-y-2 text-sm">
@@ -105,7 +104,7 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Contact Info */}
+      
         <div>
           <h3 className="text-white text-lg font-semibold mb-3">Contact Us</h3>
           <ul className="space-y-2 text-sm">
@@ -116,7 +115,7 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Bottom Note */}
+     
       <div className="border-t border-gray-700 mt-12 pt-6 text-center text-gray-400 text-sm">
         © {new Date().getFullYear()} BookCourier — All Rights Reserved.
       </div>

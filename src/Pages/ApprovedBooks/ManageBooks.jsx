@@ -22,9 +22,6 @@ const ManageBooks = () => {
 
   if (isLoading) return <Loading />;
 
-  /* =======================
-     SELECT BOOKS
-  ======================== */
   const handleSelect = (id) => {
     setSelectedBooks((prev) =>
       prev.includes(id) ? prev.filter((bookId) => bookId !== id) : [...prev, id]
@@ -39,9 +36,6 @@ const ManageBooks = () => {
     }
   };
 
-  /* =======================
-     BULK DELETE
-  ======================== */
   const handleBulkDelete = async () => {
     if (selectedBooks.length === 0) return;
 
@@ -66,9 +60,6 @@ const ManageBooks = () => {
     }
   };
 
-  /* =======================
-     VIEW + PUBLISH / UNPUBLISH
-  ======================== */
   const handleViewBook = async (book) => {
     const isPublished = book.status === "Published";
 
@@ -111,7 +102,6 @@ const ManageBooks = () => {
 
   return (
     <div className="p-6">
-      {/* HEADER */}
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-2xl font-bold">Manage Books</h2>
 
@@ -124,7 +114,6 @@ const ManageBooks = () => {
         </button>
       </div>
 
-      {/* TABLE */}
       <div className="overflow-x-auto">
         <table className="table table-zebra">
           <thead>

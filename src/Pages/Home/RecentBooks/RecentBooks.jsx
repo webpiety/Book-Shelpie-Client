@@ -44,14 +44,11 @@ const RecentBooks = () => {
         </div>
       </div>
       <div className="grid grid-cols-2 grid-rows-4 max-w-5xl gap-2 h-[1100px] mx-auto mt-4 md:mt-2">
-        {/* Card 1 */}
         <div className="row-span-2 shadow-lg overflow-hidden relative group">
           <img src={firstBook.image} alt="" className="w-full h-full" />
 
-          {/* Dark overlay on hover */}
           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300"></div>
 
-          {/* Text & Button */}
           <div className="absolute bottom-0 left-0 w-full p-4 bg-linear-to-t from-black/80 to-transparent">
             <h3 className="text-3xl font-extrabold text-white drop-shadow-lg">
               {firstBook.title}
@@ -66,7 +63,6 @@ const RecentBooks = () => {
           </div>
         </div>
 
-        {/* Card 2 */}
         <div className="row-span-1 shadow-lg overflow-hidden relative group">
           <img src={secondBook.image} alt="" className="w-full h-full" />
           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300"></div>
@@ -84,7 +80,6 @@ const RecentBooks = () => {
           </div>
         </div>
 
-        {/* Card 3 */}
         <div className="row-span-1 shadow-lg overflow-hidden relative group">
           <img src={thirdBook.image} alt="" className="w-full h-full" />
           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300"></div>
@@ -102,7 +97,6 @@ const RecentBooks = () => {
           </div>
         </div>
 
-        {/* Card 4 */}
         <div className="row-span-1 shadow-lg overflow-hidden relative group">
           <img src={fourthBook.image} alt="" className="w-full h-full" />
           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300"></div>
@@ -120,7 +114,6 @@ const RecentBooks = () => {
           </div>
         </div>
 
-        {/* Card 5 */}
         <div className="row-span-2 shadow-lg overflow-hidden relative group">
           <img src={fifthBook.image} alt="" className="w-full h-full" />
           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300"></div>
@@ -138,7 +131,6 @@ const RecentBooks = () => {
           </div>
         </div>
 
-        {/* Card 6 */}
         <div className="row-span-1 shadow-lg overflow-hidden relative group">
           <img src={sixthBook.image} alt="" className="w-full h-full" />
           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300"></div>

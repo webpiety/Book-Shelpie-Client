@@ -39,9 +39,9 @@ const Recent = () => {
           slideShadows: true,
         }}
         autoplay={{
-          delay: 2000, // Time between slides
+          delay: 2000,
           disableOnInteraction: false,
-          pauseOnMouseEnter: false, // Important to keep autoplay on hover
+          pauseOnMouseEnter: false,
         }}
         pagination={{ clickable: true }}
         modules={[EffectCoverflow, Pagination, Autoplay]}
@@ -50,14 +50,12 @@ const Recent = () => {
         {recentBooks.map((img, index) => (
           <SwiperSlide key={index}>
             <div className="w-full aspect-3/4 bg-gray-100 overflow-hidden">
-              {/* Image */}
               <img
                 src={img.imageLink}
                 alt={img.title}
                 className="w-full h-full object-cover"
               />
 
-              {/* Title Overlay */}
               <div className="absolute bottom-0 left-0 w-full bg-black/50 text-white p-3 flex justify-between items-center">
                 <h3 className="text-lg font-semibold">{img.title}</h3>
                 <Link

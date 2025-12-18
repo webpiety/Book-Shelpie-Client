@@ -6,21 +6,21 @@ const slides = [
     title: "Welcome to Book Selfie",
     subtitle: "Borrow books from libraries across the country.",
     btn: "Explore Books",
-    direction: "left", // text comes from left
+    direction: "left",
   },
   {
     img: "https://i.ibb.co.com/nssZ4gfX/young-student-looking-book-library.jpg",
     title: "Discover New Worlds",
     subtitle: "Thousands of readers already love Book Selfie.",
     btn: "Start Reading",
-    direction: "top", // text comes from top
+    direction: "top",
   },
   {
     img: "https://i.ibb.co.com/YTNJmC3g/good-books-library.jpg",
     title: "Read More, Pay Less",
     subtitle: "Borrow, return, and enjoy anytime, anywhere.",
     btn: "Browse Collection",
-    direction: "right", // text comes from right
+    direction: "right",
   },
 ];
 
@@ -34,7 +34,6 @@ const HeaderBanner = () => {
     return () => clearInterval(timer);
   }, []);
 
-  // Map direction to animation class
   const getAnimationClass = (direction) => {
     switch (direction) {
       case "left":
@@ -52,7 +51,6 @@ const HeaderBanner = () => {
 
   return (
     <div className="flex flex-col md:flex-row items-center gap-6  h-[400px] md:h-[500px]">
-      {/* Text Section */}
       <div className=" text-center  relative">
         <div
           key={current}
@@ -67,13 +65,12 @@ const HeaderBanner = () => {
           <p className="inter-font text-lg md:text-xl mb-6 text-base-content/80 max-w-xl">
             {slides[current].subtitle}
           </p>
-          <button className="btn btn-lg bg-linear-to-r from-primary to-secondary text-white border-none shadow-xl hover:opacity-90">
+          <button className="btn btn-lg bg-indigo-600 text-white border-none shadow-xl hover:opacity-90">
             {slides[current].btn}
           </button>
         </div>
       </div>
 
-      {/* Image Section */}
       <div className=" relative w-full h-[300px] md:h-[500px] overflow-hidden rounded-xl">
         {slides.map((slide, index) => (
           <img

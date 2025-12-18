@@ -17,7 +17,6 @@ const BookDetails = () => {
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
 
-  // Fetch book details
   const { data: book = {}, isLoading } = useQuery({
     queryKey: ["bookDetails", id],
     enabled: !!id,
@@ -88,7 +87,6 @@ const BookDetails = () => {
     <div className="max-w-6xl mx-auto px-4 py-16">
       <Toaster position="top-center" reverseOrder={false} />
       <div className="grid md:grid-cols-2 gap-12 bg-white rounded-2xl shadow-xl p-8 items-stretch">
-        {/* Book Image */}
         <div className="h-full flex">
           <img
             src={book?.imageLink}
@@ -97,9 +95,7 @@ const BookDetails = () => {
           />
         </div>
 
-        {/* Book Info */}
         <div className="space-y-6 flex flex-col">
-          {/* Title & Author */}
           <div>
             <h1 className="text-4xl font-bold text-gray-900">{book?.title}</h1>
             <p className="text-lg text-gray-600 mt-2">
@@ -107,9 +103,7 @@ const BookDetails = () => {
             </p>
           </div>
 
-          {/* Rating */}
           <div className="flex items-center gap-2 mt-4">
-            {/* Stars */}
             <div className="flex text-yellow-400">
               {Array(fullStars)
                 .fill(0)
@@ -124,12 +118,10 @@ const BookDetails = () => {
                 ))}
             </div>
 
-            {/* Numeric rating */}
             <span className="text-gray-600 font-medium">
               {book.review.rating.toFixed(1)} / 5
             </span>
 
-            {/* Comment */}
             {book.review.comment && (
               <span className="text-gray-500 ml-2 italic">
                 "{book.review.comment}"
@@ -137,7 +129,6 @@ const BookDetails = () => {
             )}
           </div>
 
-          {/* Price */}
           <div className="flex items-center gap-4">
             <span className="text-3xl font-bold text-indigo-600">
               ৳ {book?.price}
@@ -147,7 +138,6 @@ const BookDetails = () => {
             </span>
           </div>
 
-          {/* Info Grid */}
           <div className="grid grid-cols-2 gap-4 text-sm text-gray-700">
             <div className="bg-gray-50 p-4 rounded-lg">
               <p className="font-semibold">Country</p>
@@ -167,7 +157,6 @@ const BookDetails = () => {
             </div>
           </div>
 
-          {/* Description */}
           <div className="bg-linear-to-r from-indigo-50 to-purple-50 p-6 rounded-xl border border-indigo-100 flex-1">
             <h3 className="text-lg font-semibold text-gray-900 mb-2">
               📖 Description
@@ -178,7 +167,6 @@ const BookDetails = () => {
             </p>
           </div>
 
-          {/* Buttons */}
           <div className="flex gap-4 pt-4">
             <button
               onClick={handleOrder}

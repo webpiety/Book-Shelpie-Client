@@ -16,7 +16,6 @@ const PaymentHistory = () => {
     queryKey: ["paymentHistory", user?.email],
     enabled: !!user?.email,
     queryFn: async () => {
-      // API already exists
       const res = await axiosSecure.get(`/payments?email=${user.email}`);
       return res.data;
     },

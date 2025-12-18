@@ -31,7 +31,6 @@ const AllBooks = () => {
           <span className="text-yellow-300">{displayBooks.length}</span>
         </h2>
 
-        {/* Search Bar */}
         <form className="max-w-3xl">
           <label className="input flex items-center gap-2 border border-indigo-300 focus:border-indigo-600 outline-none px-4 py-2 rounded-lg w-64 text-gray-700">
             <svg
@@ -75,7 +74,6 @@ const AllBooks = () => {
             key={book._id}
             className="relative bg-white shadow-lg rounded-xl overflow-hidden group"
           >
-            {/* Image */}
             <div className="w-full aspect-3/4 bg-gray-100 overflow-hidden">
               <img
                 src={book.imageLink}
@@ -84,12 +82,10 @@ const AllBooks = () => {
               />
             </div>
 
-            {/* Title overlay */}
             <div className="absolute top-0 left-0 w-full bg-black/60 text-white p-3">
               <h2 className="text-lg font-semibold truncate">{book.title}</h2>
             </div>
 
-            {/* Bottom button */}
             <div className="p-4">
               <Link
                 to={`/book-details/${book._id}`}

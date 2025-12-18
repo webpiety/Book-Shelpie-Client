@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
+import book from "../../../assets/bookDelivery.jpg";
 
 const BookCourier = () => {
   return (
     <section className="w-full bg-gradient-to-r from-purple-600 to-indigo-700 text-white py-20 mt-12">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-        {/* LEFT TEXT */}
         <motion.div
           initial={{ x: -60, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
@@ -13,7 +13,7 @@ const BookCourier = () => {
         >
           <h1 className="text-4xl md:text-6xl font-extrabold leading-tight">
             Borrow Your Favorite Books <br />
-            From <span className="text-yellow-300">BookCourier</span>
+            From <span className="text-yellow-300">Book Selpie</span>
           </h1>
 
           <p className="text-white/90 text-lg md:text-xl">
@@ -21,7 +21,6 @@ const BookCourier = () => {
             to your doorstep. Read, enjoy, and return with ease.
           </p>
 
-          {/* CTA BUTTONS */}
           <div className="flex gap-4 mt-4">
             <button className="px-6 py-3 bg-yellow-300 text-black font-semibold rounded-xl hover:bg-yellow-400 transition">
               Browse Books
@@ -32,7 +31,6 @@ const BookCourier = () => {
           </div>
         </motion.div>
 
-        {/* RIGHT IMAGE */}
         <motion.div
           initial={{ y: 60, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -40,7 +38,7 @@ const BookCourier = () => {
           className="w-full"
         >
           <img
-            src="https://i.ibb.co/CVn0QLT/book-reading-cover.png"
+            src={book}
             alt="Book Courier Banner"
             className="rounded-3xl shadow-2xl w-full h-[450px] object-cover border border-white/20"
           />

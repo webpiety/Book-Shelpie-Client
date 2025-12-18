@@ -32,7 +32,7 @@ const PaymentSuccess = () => {
   }, [sessionId, axiosSecure]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-50 to-green-50 px-4">
+    <div className="min-h-screen flex items-center justify-center bg-linear-to from-indigo-50 to-green-50 px-4">
       <div className="bg-white shadow-2xl rounded-2xl p-10 max-w-md w-full text-center">
         <FaCheckCircle className="text-green-500 text-6xl mx-auto mb-4" />
 

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useForm } from "react-hook-form"; // removed Watch
+import { useForm } from "react-hook-form";
 import { TbUserQuestion } from "react-icons/tb";
 import { FcGoogle } from "react-icons/fc";
 import { useLocation, useNavigate } from "react-router";
@@ -19,7 +19,7 @@ const Register = () => {
   const {
     register,
     handleSubmit,
-    watch, // use watch instead of Watch
+    watch,
     formState: { errors },
   } = useForm();
 
@@ -58,7 +58,7 @@ const Register = () => {
 
           updateUser(userProfile)
             .then(() => {
-              console.log("Updated user information"); // fixed typo
+              console.log("Updated user information");
               navigate(location?.state || "/");
             })
             .catch((err) => console.log(err.message));
@@ -82,7 +82,6 @@ const Register = () => {
 
         console.log("User save response:", res.data);
 
-        // Navigate always, even if user already exists
         navigate(location?.state?.from || "/", { replace: true });
       })
       .catch((error) => {
@@ -90,7 +89,7 @@ const Register = () => {
       });
   };
 
-  const password = watch("password"); // corrected
+  const password = watch("password");
 
   return (
     <div className="min-h-screen flex items-center justify-center dark:bg-gray-900 p-4">
@@ -101,7 +100,6 @@ const Register = () => {
         </h2>
 
         <form onSubmit={handleSubmit(handleRegister)} className="space-y-5">
-          {/* Full Name */}
           <div>
             <label className="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-300">
               Full Name
@@ -121,7 +119,6 @@ const Register = () => {
             )}
           </div>
 
-          {/* Profile Image */}
           <div>
             <label className="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-300">
               Upload Profile Image
@@ -162,7 +159,6 @@ const Register = () => {
             </div>
           </div>
 
-          {/* Email */}
           <div>
             <label className="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-300">
               Email Address
@@ -182,7 +178,6 @@ const Register = () => {
             )}
           </div>
 
-          {/* Password */}
           <div>
             <label className="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-300">
               Password
@@ -213,7 +208,6 @@ const Register = () => {
             )}
           </div>
 
-          {/* Confirm Password */}
           <div>
             <label className="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-300">
               Confirm Password
@@ -237,7 +231,6 @@ const Register = () => {
             )}
           </div>
 
-          {/* Submit Button */}
           <button
             type="submit"
             className="w-full bg-[#522ba7] text-white py-3 rounded-xl font-semibold transition-all hover:bg-[#6b3fd1]"
@@ -245,14 +238,12 @@ const Register = () => {
             Register
           </button>
 
-          {/* Divider */}
           <div className="flex items-center gap-3 my-4">
             <div className="flex-1 h-px bg-gray-300 dark:bg-gray-600"></div>
             <span className="text-gray-500 dark:text-gray-300 text-sm">OR</span>
             <div className="flex-1 h-px bg-gray-300 dark:bg-gray-600"></div>
           </div>
 
-          {/* Google Sign In */}
           <button
             type="button"
             onClick={handleGoogleSignIn}
@@ -263,7 +254,6 @@ const Register = () => {
           </button>
         </form>
 
-        {/* Login redirect */}
         <p className="text-center text-sm mt-5 text-gray-600 dark:text-gray-300">
           Already have an account?{" "}
           <a

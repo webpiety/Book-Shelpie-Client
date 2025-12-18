@@ -41,7 +41,6 @@ const Borrowing = () => {
           simple steps and enjoy reading from anywhere in Bangladesh.
         </p>
 
-        {/* Steps Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {steps.map((step, i) => (
             <motion.div

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ShieldCheck, Timer, MapPin, BookOpen, Truck } from "lucide-react";
+import choseImage from "../../../assets/2473082.jpg";
 
 const ChooseUs = () => {
   const features = [
@@ -33,7 +34,6 @@ const ChooseUs = () => {
   return (
     <section className="py-20 mt-12">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        {/* IMAGE LEFT SIDE */}
         <motion.div
           initial={{ x: -60, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
@@ -42,13 +42,12 @@ const ChooseUs = () => {
           className="w-full"
         >
           <img
-            src="https://i.ibb.co/1nZLhVy/choose-us-banner.png"
+            src={choseImage}
             alt="Why Choose BookCourier"
             className="rounded-3xl shadow-2xl w-full h-[450px] object-cover border border-purple-200"
           />
         </motion.div>
 
-        {/* FEATURES RIGHT SIDE */}
         <div className="space-y-6">
           <motion.h2
             initial={{ y: 40, opacity: 0 }}
@@ -57,7 +56,7 @@ const ChooseUs = () => {
             viewport={{ once: true }}
             className="text-4xl font-extrabold text-purple-700"
           >
-            Why Choose <span className="text-indigo-600">BookCourier</span>?
+            Why Choose <span className="text-indigo-600">Book Selpie</span>?
           </motion.h2>
 
           <motion.p
@@ -72,7 +71,6 @@ const ChooseUs = () => {
             before.
           </motion.p>
 
-          {/* Feature Cards */}
           <div className="space-y-5">
             {features.map((item, i) => (
               <motion.div
@@ -83,7 +81,7 @@ const ChooseUs = () => {
                 viewport={{ once: true }}
                 className="flex items-start gap-4 p-5 bg-white/60 backdrop-blur-xl border border-purple-100 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300"
               >
-                <div className="flex-shrink-0 p-3 bg-purple-100 rounded-xl">
+                <div className="shrink-0 p-3 bg-purple-100 rounded-xl">
                   {item.icon}
                 </div>
 

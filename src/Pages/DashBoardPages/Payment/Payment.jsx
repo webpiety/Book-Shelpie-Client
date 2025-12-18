@@ -6,7 +6,7 @@ import useAuth from "../../../Hooks/useAuth";
 import Loading from "../../Loading/Loading";
 
 const Payment = () => {
-  const { id } = useParams(); // orderId
+  const { id } = useParams();
   const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
 

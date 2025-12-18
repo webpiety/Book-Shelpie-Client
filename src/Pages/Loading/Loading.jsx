@@ -1,5 +1,4 @@
 import React from "react";
-// import "./index.css"; // Make sure this imports your CSS file
 
 const Loading = () => {
   return (

@@ -125,11 +125,6 @@ const NavBar = () => {
                     </Link>
                   </li>
                   <li>
-                    <a className="btn btn-sm bg-[#04AC47] text-white hover:bg-[#03973E] mt-2">
-                      Become a Rider
-                    </a>
-                  </li>
-                  <li>
                     <Link
                       onClick={handleLogOut}
                       className="btn btn-sm bg-gray-200 hover:bg-gray-300 mt-2"

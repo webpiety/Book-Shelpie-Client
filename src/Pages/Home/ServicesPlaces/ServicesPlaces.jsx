@@ -3,7 +3,6 @@ import coverage from "../../../assets/coverage.png";
 const ServicesPlaces = () => {
   return (
     <section className="py-16 bg-base-100">
-      {/* Heading */}
       <div className="flex justify-center">
         <div class="card">
           <div class="loader">
@@ -25,9 +24,7 @@ const ServicesPlaces = () => {
         </div>
       </div>
 
-      {/* Image + Content */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center mx-auto mt-8">
-        {/* Left Image */}
         <div className="w-full">
           <img
             src={coverage}
@@ -36,9 +33,7 @@ const ServicesPlaces = () => {
           />
         </div>
 
-        {/* Right Feature Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          {/* Card 1 */}
           <div className="p-6 bg-white shadow-lg rounded-2xl border hover:shadow-xl transition">
             <div className="text-secondary text-4xl mb-3">📍</div>
             <h3 className="font-bold text-xl mb-2">64 Districts Covered</h3>
@@ -48,7 +43,6 @@ const ServicesPlaces = () => {
             </p>
           </div>
 
-          {/* Card 2 */}
           <div className="p-6 bg-white shadow-lg rounded-2xl border hover:shadow-xl transition">
             <div className="text-secondary text-4xl mb-3">🚚</div>
             <h3 className="font-bold text-xl mb-2">Doorstep Delivery</h3>
@@ -58,7 +52,6 @@ const ServicesPlaces = () => {
             </p>
           </div>
 
-          {/* Card 3 */}
           <div className="p-6 bg-white shadow-lg rounded-2xl border hover:shadow-xl transition">
             <div className="text-secondary text-4xl mb-3">🔄</div>
             <h3 className="font-bold text-xl mb-2">Easy Book Return</h3>
@@ -68,7 +61,6 @@ const ServicesPlaces = () => {
             </p>
           </div>
 
-          {/* Card 4 */}
           <div className="p-6 bg-white shadow-lg rounded-2xl border hover:shadow-xl transition">
             <div className="text-secondary text-4xl mb-3">📦</div>
             <h3 className="font-bold text-xl mb-2">Fast Processing</h3>

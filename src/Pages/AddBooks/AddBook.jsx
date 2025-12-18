@@ -11,7 +11,6 @@ const AddBook = () => {
 
   const { register, handleSubmit, reset, watch } = useForm();
 
-  // Watch image link field
   const imagePreview = watch("imageLink");
 
   const onSubmit = async (data) => {
@@ -32,7 +31,7 @@ const AddBook = () => {
       imageLink: data.imageLink,
       link: data.link,
       description: data.description,
-      status: data.status, // ✅ Add status here
+      status: data.status,
       createdAt: new Date().toISOString().split("T")[0],
       review: {
         rating: Number(data.rating),
@@ -58,9 +57,7 @@ const AddBook = () => {
     <div className="max-w-6xl mx-auto p-6">
       <h2 className="text-xl font-bold mb-4 text-center">Add Book</h2>
 
-      {/* LEFT FORM + RIGHT IMAGE */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {/* LEFT SIDE FORM */}
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
           <input
             {...register("title", { required: true })}
@@ -128,7 +125,6 @@ const AddBook = () => {
             className="input input-bordered w-full"
           />
 
-          {/* ✅ Status Dropdown */}
           <select
             {...register("status", { required: true })}
             className="select select-bordered w-full"
@@ -143,7 +139,6 @@ const AddBook = () => {
           </button>
         </form>
 
-        {/* RIGHT SIDE IMAGE PREVIEW */}
         <div className="flex items-start justify-center border rounded-lg p-4 bg-base-200">
           {imagePreview ? (
             <img

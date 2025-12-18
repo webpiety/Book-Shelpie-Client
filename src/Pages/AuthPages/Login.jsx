@@ -53,7 +53,6 @@ const Login = () => {
 
         console.log("User save response:", res.data);
 
-        // Navigate always, even if user already exists
         navigate(location?.state?.from || "/", { replace: true });
       })
       .catch((error) => {
@@ -96,7 +95,6 @@ const Login = () => {
             )}
           </div>
 
-          {/* Password */}
           <div>
             <label className="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-300">
               Password
@@ -126,7 +124,6 @@ const Login = () => {
             )}
           </div>
 
-          {/* Remember & Forgot Password */}
           <div className="flex justify-between text-sm">
             <label className="flex items-center gap-2 cursor-pointer dark:text-gray-300">
               <input type="checkbox" className="accent-[#522ba7]" />
@@ -137,7 +134,6 @@ const Login = () => {
             </a>
           </div>
 
-          {/* Submit Button */}
           <button
             type="submit"
             className="w-full bg-[#522ba7] text-white py-3 rounded-xl font-semibold transition-all hover:bg-[#6b3fd1]"
@@ -145,14 +141,12 @@ const Login = () => {
             Login
           </button>
 
-          {/* Divider */}
           <div className="flex items-center gap-3 my-4">
             <div className="flex-1 h-px bg-gray-300 dark:bg-gray-600"></div>
             <span className="text-gray-500 dark:text-gray-300 text-sm">OR</span>
             <div className="flex-1 h-px bg-gray-300 dark:bg-gray-600"></div>
           </div>
 
-          {/* Google Sign In */}
           <button
             type="button"
             onClick={handleGoogleSignIn}
@@ -163,7 +157,6 @@ const Login = () => {
           </button>
         </form>
 
-        {/* Register Link */}
         <p className="text-center text-sm mt-5 text-gray-600 dark:text-gray-300">
           Don’t have an account?{" "}
           <a

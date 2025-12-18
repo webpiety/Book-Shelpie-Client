@@ -136,11 +136,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "manage-books",
-        element: (
-          <AdminRoute>
-            <ManageBooks></ManageBooks>
-          </AdminRoute>
-        ),
+        element: <ManageBooks></ManageBooks>,
       },
       {
         path: "manage-orders",

@@ -18,7 +18,6 @@ const MyProfile = () => {
     },
   });
 
-  // Fetch current user from backend
   const {
     data: profile,
     isLoading,
@@ -32,7 +31,6 @@ const MyProfile = () => {
     enabled: !!user?.email,
   });
 
-  // Reset form whenever profile data changes
   useEffect(() => {
     if (profile) {
       reset({
@@ -60,7 +58,7 @@ const MyProfile = () => {
       });
 
       setIsEdit(false);
-      refetch(); // refetch the latest profile
+      refetch();
     } catch (err) {
       console.error(err);
       Swal.fire({
@@ -78,7 +76,6 @@ const MyProfile = () => {
         <div className="card-body">
           <h2 className="text-2xl font-bold text-center mb-6">My Profile</h2>
 
-          {/* Avatar */}
           <div className="flex justify-center mb-6">
             <div className="avatar">
               <div className="w-24 h-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2 overflow-hidden">
@@ -105,14 +102,14 @@ const MyProfile = () => {
                 <strong>Role:</strong>{" "}
                 <span
                   className={`badge capitalize ${
-                    profile?.userRole === "admin"
+                    profile?.role === "admin"
                       ? "badge-success"
-                      : profile?.userRole === "librarian"
+                      : profile?.role === "librarian"
                       ? "badge-info"
                       : "badge-warning"
                   }`}
                 >
-                  {profile?.userRole || "user"}
+                  {profile?.role || "user"}
                 </span>
               </p>
 

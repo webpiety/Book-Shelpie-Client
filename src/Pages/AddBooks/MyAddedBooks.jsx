@@ -20,14 +20,13 @@ const MyAddedBooks = () => {
       const res = await axiosSecure.get(`/books/add/books?email=${user.email}`);
       return res.data;
     },
-    enabled: !!user?.email, // only run query if user is logged in
+    enabled: !!user?.email,
   });
 
   if (isLoading) {
     return <Loading />;
   }
 
-  // Delete book
   const handleDelete = async (id) => {
     try {
       await axiosSecure.delete(`/books/${id}?email=${user.email}`);
@@ -39,7 +38,6 @@ const MyAddedBooks = () => {
     }
   };
 
-  // Publish book
   const handlePublishedBook = async (id) => {
     try {
       await axiosSecure.patch(`/books/${id}/status`, {
@@ -53,7 +51,6 @@ const MyAddedBooks = () => {
     }
   };
 
-  // Unpublish book
   const handleUnpublisheddBook = async (id) => {
     try {
       await axiosSecure.patch(`/books/${id}/status`, {
@@ -115,7 +112,6 @@ const MyAddedBooks = () => {
                 </span>
               </td>
               <td className="">
-                {/* Edit Book */}
                 <Link
                   to={`/dashboard/edit-book/${book._id}`}
                   className="btn bg-yellow-400 btn-xs text-white"
@@ -123,7 +119,6 @@ const MyAddedBooks = () => {
                   Edit
                 </Link>
 
-                {/* Publish / Unpublish */}
                 {book.status === "Published" ? (
                   <button
                     onClick={() => handleUnpublisheddBook(book._id)}
@@ -140,7 +135,6 @@ const MyAddedBooks = () => {
                   </button>
                 )}
 
-                {/* Delete */}
                 <button
                   onClick={() => handleDelete(book._id)}
                   className="btn bg-red-500 btn-xs text-white"

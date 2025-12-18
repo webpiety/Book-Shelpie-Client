@@ -5,19 +5,22 @@ const Reviews = () => {
   const reviews = [
     {
       name: "Arif Hossen",
-      avatar: "https://i.ibb.co/X2hq9LH/user1.jpg",
+      avatar:
+        "https://i.ibb.co.com/xtNbDFq9/smiling-young-man-with-crossed-arms-outdoors.jpg",
       rating: 5,
       text: "BookCourier has completely changed how I read books! Fast delivery and very professional service. I love how easy it is to borrow and return.",
     },
     {
       name: "Maria Rahman",
-      avatar: "https://i.ibb.co/nwZ5wr9/user2.jpg",
+      avatar:
+        "https://i.ibb.co.com/MdFDs7s/mid-shot-smiling-blond-woman-with-arms-crossed.jpg",
       rating: 5,
       text: "Amazing collection of books. The courier service is smooth and the process is super simple. Highly recommended for book lovers!",
     },
     {
       name: "Shakib Hasan",
-      avatar: "https://i.ibb.co/Dzk2Sdj/user3.jpg",
+      avatar:
+        "https://i.ibb.co.com/0RNPc288/young-man-with-charming-smile-blue-eyes-posing.jpg",
       rating: 4,
       text: "Great experience! Delivery was fast and the book quality was perfect. Borrowing books has never been this easy before.",
     },
@@ -34,7 +37,6 @@ const Reviews = () => {
           quality books right to their doorstep.
         </p>
 
-        {/* Review Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {reviews.map((review, i) => (
             <motion.div
@@ -55,7 +57,6 @@ const Reviews = () => {
 
               <h3 className="text-xl font-semibold">{review.name}</h3>
 
-              {/* Rating Stars */}
               <div className="flex justify-center my-3">
                 {Array.from({ length: review.rating }).map((_, i) => (
                   <Star

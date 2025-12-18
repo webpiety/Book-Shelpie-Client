@@ -27,8 +27,8 @@ const UserManagement = () => {
   console.log(users);
 
   const handleMakeAdmin = (user) => {
-    const roleInfo = { userRole: "admin" };
-    //TODO: must ask for confirmation before proceed
+    const roleInfo = { role: "admin" };
+
     axiosSecure.patch(`/users/${user._id}/role`, roleInfo).then((res) => {
       console.log(res.data);
       if (res.data.modifiedCount) {
@@ -45,8 +45,8 @@ const UserManagement = () => {
   };
 
   const handleMakeUser = (user) => {
-    const roleInfo = { userRole: "user" };
-    //TODO: must ask for confirmation before proceed
+    const roleInfo = { role: "user" };
+
     axiosSecure.patch(`/users/${user._id}/role`, roleInfo).then((res) => {
       if (res.data.modifiedCount) {
         refetch();
@@ -61,8 +61,8 @@ const UserManagement = () => {
     });
   };
   const handleMakeLibrian = (user) => {
-    const roleInfo = { userRole: "librarian" };
-    //TODO: must ask for confirmation before proceed
+    const roleInfo = { role: "librarian" };
+
     axiosSecure.patch(`/users/${user._id}/role`, roleInfo).then((res) => {
       console.log(res.data);
       if (res.data.modifiedCount) {
@@ -103,7 +103,6 @@ const UserManagement = () => {
             <span className="text-yellow-300">{displayUsers.length}</span>
           </h2>
 
-          {/* Search Bar */}
           <form className="max-w-3xl">
             <label className="input flex items-center gap-2 border border-indigo-300 focus:border-indigo-600 outline-none px-4 py-2 rounded-lg w-64 text-gray-700">
               <svg
@@ -168,18 +167,18 @@ const UserManagement = () => {
                   <td>
                     <span
                       className={`badge capitalize ${
-                        user.userRole === "admin"
-                          ? "badge-success" // green
-                          : user.userRole === "librarian"
-                          ? "badge-info" // blue
-                          : "badge-warning" // user → yellow
+                        user.role === "admin"
+                          ? "badge-success"
+                          : user.role === "librarian"
+                          ? "badge-info"
+                          : "badge-warning"
                       }`}
                     >
-                      {user.userRole}
+                      {user.role}
                     </span>
                   </td>
                   <td className="flex gap-2">
-                    {user.userRole === "admin" ? (
+                    {user.role === "admin" ? (
                       <button
                         onClick={() => handleMakeUser(user)}
                         className="btn btn-sm btn-primary gap-1"
@@ -195,7 +194,7 @@ const UserManagement = () => {
                         Make Admin
                       </button>
                     )}
-                    {user.userRole === "librarian" ? (
+                    {user.role === "librarian" ? (
                       <button
                         onClick={() => handleMakeUser(user)}
                         className="btn btn-sm btn-info gap-1 text-white"

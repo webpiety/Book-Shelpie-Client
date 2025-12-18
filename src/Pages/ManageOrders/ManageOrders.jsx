@@ -10,7 +10,6 @@ const LibrarianOrders = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
 
-  // Fetch orders for books added by this librarian
   const {
     data: orders = [],
     isLoading,
@@ -22,14 +21,12 @@ const LibrarianOrders = () => {
       const res = await axiosSecure.get(`/orders?creatorEmail=${user?.email}`);
       return res.data;
     },
-    // enabled: !!user?.email,
   });
 
   console.log("ORDER", orders);
 
   if (isLoading) return <Loading />;
 
-  // Cancel order
   const handleCancel = async (orderId) => {
     const confirm = await Swal.fire({
       title: "Are you sure?",
@@ -52,15 +49,14 @@ const LibrarianOrders = () => {
     }
   };
 
-  // Update order status
   const handleChangeStatus = async (orderId, newStatus) => {
     try {
       await axiosSecure.patch(`/orders/${orderId}/status`, {
-        status: newStatus, // <-- matches backend
+        status: newStatus,
       });
 
       toast.success(`Order status updated to "${newStatus}"`);
-      refetch(); // <-- refresh orders list
+      refetch();
     } catch (error) {
       console.error(error);
       toast.error("Failed to update status");

@@ -43,7 +43,7 @@ const MyBooks = () => {
 
       if (res.data.success) {
         toast.success("Order cancelled successfully");
-        refetch(); // refresh UI
+        refetch();
       }
     } catch (error) {
       toast.error(error.response?.data?.message || "Failed to cancel order");

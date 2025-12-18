@@ -24,7 +24,6 @@ const Coverage = () => {
 
   return (
     <div className="my-10 bg-base-100 rounded-2xl shadow-lg p-10">
-      {/* Header */}
       <div className="text-center mb-8">
         <h2 className="text-4xl font-bold text-secondary">
           We are available in all 64 districts
@@ -34,7 +33,6 @@ const Coverage = () => {
         </p>
       </div>
 
-      {/* Search Input */}
       <form onSubmit={handleSearch} className="max-w-xl mx-auto mb-10">
         <label className="input input-bordered rounded-2xl shadow-md flex items-center gap-2 bg-white w-full">
           <svg
@@ -68,7 +66,6 @@ const Coverage = () => {
         </h3>
       </div>
 
-      {/* Map Section */}
       <div className="border rounded-2xl shadow-xl overflow-hidden z-0">
         <MapContainer
           center={position}
