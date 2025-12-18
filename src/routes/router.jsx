@@ -23,6 +23,7 @@ import MyProfile from "../Pages/MyProfile/MyProfile";
 import EditBook from "../Pages/AddBooks/EditBook";
 import ManageBooks from "../Pages/ApprovedBooks/ManageBooks";
 import ManageOrders from "../Pages/ManageOrders/ManageOrders";
+import AdminRoute from "./AdminRoute";
 
 export const router = createBrowserRouter([
   {
@@ -119,7 +120,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "user-management",
-        Component: UserManagement,
+        element: (
+          <AdminRoute>
+            <UserManagement></UserManagement>
+          </AdminRoute>
+        ),
       },
       {
         path: "my-information",
@@ -131,11 +136,15 @@ export const router = createBrowserRouter([
       },
       {
         path: "manage-books",
-        Component: ManageBooks,
+        element: (
+          <AdminRoute>
+            <ManageBooks></ManageBooks>
+          </AdminRoute>
+        ),
       },
       {
         path: "manage-orders",
-        Component: ManageOrders
+        Component: ManageOrders,
       },
     ],
   },
