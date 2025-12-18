@@ -25,7 +25,7 @@ const Coverage = () => {
   return (
     <div className="my-10 bg-base-100 rounded-2xl shadow-lg p-10">
       <div className="text-center mb-8">
-        <h2 className="text-4xl font-bold text-secondary">
+        <h2 className="text-4xl font-bold text-indigo-600">
           We are available in all 64 districts
         </h2>
         <p className="text-gray-600 mt-2">
@@ -61,7 +61,7 @@ const Coverage = () => {
       </form>
 
       <div className="text-center mb-6">
-        <h3 className="text-secondary font-bold text-2xl">
+        <h3 className="text-indigo-600 font-bold text-2xl">
           We deliver almost all over Bangladesh
         </h3>
       </div>
